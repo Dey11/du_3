@@ -1,4 +1,4 @@
-const Accident = require("../models/accidentSchema");
+const Accident = require("../db/models/accidentSchema");
 
 const reportAccident = async (req, res) => {
   const accidentData = req.body;

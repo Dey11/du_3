@@ -4,6 +4,7 @@ const cors = require("cors");
 const app = express();
 
 const accidentRouter = require("./routes/accidentRouter");
+const authRouter = require("./routes/authRouter");
 
 const { connectToDB } = require("./db/connectToDb");
 
@@ -21,6 +22,7 @@ connectToDB(process.env.MONGODB_URL)
   });
 
 app.use("/accidents", accidentRouter);
+app.use("/auth", authRouter);
 
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
