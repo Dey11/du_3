@@ -3,6 +3,9 @@ require("dotenv").config();
 const cors = require("cors");
 const app = express();
 
+const http = require("http").createServer(app);
+const io = require("socket.io")(http);
+
 const accidentRouter = require("./routes/accidentRouter");
 const authRouter = require("./routes/authRouter");
 
@@ -24,6 +27,17 @@ connectToDB(process.env.MONGODB_URL)
 app.use("/accidents", accidentRouter);
 app.use("/auth", authRouter);
 
-app.listen(port, () => {
+io.on("connection", (socket) => {
+  console.log("a user connected");
+
+  // socket.on("accident", (accident) => {
+  //   console.log("accident: ", accident);
+  //   io.emit("accident", accident);
+  // });
+});
+
+http.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
 });
+
+module.exports = io;
