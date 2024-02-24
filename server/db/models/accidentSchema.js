@@ -41,6 +41,10 @@ const AccidentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  status: {
+    type: String,
+    default: "pending",
+  },
 });
 
 const Accident = mongoose.model("Accident", AccidentSchema);
