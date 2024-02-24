@@ -1,7 +1,9 @@
 const Accident = require("../db/models/accidentSchema");
+const fun = require("../websockets/websockets");
 
 const reportAccident = async (req, res) => {
   const accidentData = req.body;
+  fun;
   try {
     const accident = await Accident.create(accidentData);
     res.status(201).json(accident);
