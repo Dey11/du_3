@@ -1,4 +1,4 @@
-const Accident = require("../models/Accident");
+const Accident = require("../models/accidentSchema");
 
 const reportAccident = async (req, res) => {
   const accidentData = req.body;
@@ -11,8 +11,9 @@ const reportAccident = async (req, res) => {
 };
 
 const getAccidents = async (req, res) => {
+  const { state } = req.params;
   try {
-    const accidents = await Accident.find();
+    const accidents = await Accident.find({ state });
     res.status(200).json(accidents);
   } catch (error) {
     res.status(500).json({ error: error.message });
