@@ -13,7 +13,7 @@ const { connectToDB } = require("./db/connectToDb");
 
 const port = 3000 || process.env.PORT;
 
-app.use(cors());
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 connectToDB(process.env.MONGODB_URL)
