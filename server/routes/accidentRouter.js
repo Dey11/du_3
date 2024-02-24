@@ -1,13 +1,14 @@
 const express = require("express");
 const validateUser = require("../middlewares/validateUser");
+const { reportAccident, getAccidents } = require("../controllers/accidents");
 const accidentRouter = express.Router();
 
 accidentRouter.post("/report", (req, res) => {
-  res.send("Accident reported");
+  reportAccident(req, res);
 });
 
 accidentRouter.get("/:state", validateUser, (req, res) => {
-  res.send("Accident list");
+  getAccidents(req, res);
 });
 
 module.exports = accidentRouter;
