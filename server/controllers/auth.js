@@ -13,7 +13,7 @@ const login = async (req, res) => {
     }
     if (bcrypt.compareSync(password, admin.password)) {
       const token = jwt.sign({ username: admin.username }, process.env.SECRET);
-      res.status(200).json({ token });
+      res.status(200).json({ token, username, state: admin.state });
     } else {
       res.status(401).json({ error: "Invalid password" });
     }

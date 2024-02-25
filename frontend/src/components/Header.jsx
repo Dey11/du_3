@@ -7,7 +7,9 @@ import { UserContext } from "../contexts/UserContext";
 const Header = () => {
   const { user, setUser } = useContext(UserContext);
 
-  const dataFetch = async () => {
+  const dataFetch = async () => {};
+
+  useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       axios
@@ -18,19 +20,19 @@ const Header = () => {
         })
         .then((res) => {
           setUser(res.data);
-          console.log(user);
         })
         .catch((err) => {
           console.log(err);
         });
     }
-  };
-
-  useEffect(() => {
-    dataFetch();
   }, []);
 
-  const username = user.username;
+  const logout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+  };
+
+  const username = user?.username;
 
   return (
     <div className=" border-b-2 border-b-[#ffa1ab]">
@@ -54,7 +56,7 @@ const Header = () => {
             </Link>
           )}
           {username && (
-            <Link to={"/"}>
+            <Link to={"/"} onClick={logout}>
               <li className="px-2 rounded-sm bg-[#ff6d7f] hover:bg-[#ffa1ab]">
                 Logout
               </li>
