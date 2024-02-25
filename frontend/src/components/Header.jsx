@@ -7,8 +7,6 @@ import { UserContext } from "../contexts/UserContext";
 const Header = () => {
   const { user, setUser } = useContext(UserContext);
 
-  const dataFetch = async () => {};
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
