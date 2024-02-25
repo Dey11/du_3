@@ -68,7 +68,7 @@ const Header = () => {
             </Link>
           )}
           {username && (
-            <Link to={"/"}>
+            <Link to={"/dashboard"}>
               <li className="px-2 rounded-sm bg-[#ff6d7f] hover:bg-[#ffa1ab]">
                 Dashboard
               </li>
