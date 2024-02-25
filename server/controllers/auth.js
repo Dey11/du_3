@@ -44,8 +44,15 @@ const logout = (req, res) => {
   res.status(200).json({ message: "Logged out" });
 };
 
+const validate = (req, res) => {
+  // console.log(req.user);
+  const { username } = req.user;
+  res.status(200).json({ username });
+};
+
 module.exports = {
   login,
   register,
   logout,
+  validate,
 };
