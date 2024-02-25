@@ -44,10 +44,10 @@ const logout = (req, res) => {
   res.status(200).json({ message: "Logged out" });
 };
 
-const validate = (req, res) => {
-  // console.log(req.user);
+const validate = async (req, res) => {
   const { username } = req.user;
-  res.status(200).json({ username });
+  const user = await Admin.findOne({ username });
+  res.status(200).json({ username, state: user.state });
 };
 
 module.exports = {

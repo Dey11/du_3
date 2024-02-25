@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const AccidentSchema = new mongoose.Schema({
   date: {
     type: String,
-    required: true,
+    required: false,
   },
   time: {
     type: String,
@@ -15,17 +15,21 @@ const AccidentSchema = new mongoose.Schema({
   },
   city: {
     type: String,
-    required: true,
+    required: false,
   },
   street: {
     type: String,
-    required: true,
+    required: false,
   },
   zip: {
     type: String,
-    required: true,
+    required: false,
   },
   lat: {
+    type: String,
+    required: true,
+  },
+  long: {
     type: String,
     required: true,
   },
@@ -35,7 +39,7 @@ const AccidentSchema = new mongoose.Schema({
   },
   severity: {
     type: String,
-    required: true,
+    required: false,
   },
   image: {
     type: String,

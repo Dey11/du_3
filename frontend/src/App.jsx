@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import About from "./pages/About";
 import Error from "./pages/Error";
+import Dashboard from "./pages/Dashboard";
 import RootLayout from "./layouts/RootLayout";
 
 import { UserContextProvider } from "./contexts/UserContext";
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
       },
       {
         path: "*",
