@@ -8,7 +8,7 @@ const Header = () => {
         <ul className="flex justify-start gap-10 place-items-center text-[#4e0316] ">
           <Link to={"/"}>
             <li className="px-2 rounded-sm bg-[#ff6d7f] hover:bg-[#ffa1ab] ">
-              Dashboard
+              Home
             </li>
           </Link>
           <Link to={"/about"}>
