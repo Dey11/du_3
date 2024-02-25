@@ -29,6 +29,7 @@ const Login = () => {
         });
         setRedirect(true);
         const token = response.data.token;
+        console.log(token);
         localStorage.setItem("token", token);
       }
 
@@ -43,9 +44,10 @@ const Login = () => {
 
   return (
     <div className=" h-full">
+      <h1 className="text-4xl pt-10 mx-auto text-center">Log In</h1>
       <div className="">
         <form
-          className="border-2 border-[#ea294f] max-w-fit text-2xl mt-28 p-10 px-24 mx-auto 
+          className="border-2 border-[#ea294f] max-w-fit text-2xl mt-16 p-10 px-24 mx-auto 
         text-center space-y-5 rounded-lg bg-[#ffa1ab] shadow-2xl"
           onSubmit={handleSubmit}
         >
