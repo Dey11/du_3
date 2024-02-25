@@ -12,6 +12,8 @@ import About from "./pages/About";
 import Error from "./pages/Error";
 import RootLayout from "./layouts/RootLayout";
 
+import { UserContextProvider } from "./contexts/UserContext";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,7 +46,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <UserContextProvider>
+        <RouterProvider router={router} />
+      </UserContextProvider>
     </>
   );
 }
